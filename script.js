@@ -1165,3 +1165,12 @@ function exercicio6() {
     }
     console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o mais caro da loja com valor de R$ " + listaProdutos[j].preco.toFixed(2));
 }
+
+function exercicio7() {
+    // Produto mais barato da loja (bem como seu departamento - considere apenas o preço dele)
+    let j = 0;
+    for (let i = 1; i < listaProdutos.length; i++) {
+        if (listaProdutos[i].preco < listaProdutos[j].preco) {j=i};
+    }
+    console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o mais barato da loja com valor de R$ " + listaProdutos[j].preco.toFixed(2));
+}
