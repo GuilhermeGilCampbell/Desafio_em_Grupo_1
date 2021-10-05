@@ -1115,7 +1115,7 @@ function exercicio1() {
     for (let i = 0; i < listaProdutos.length; i++) {
         count += listaProdutos[i].qtdEstoque;
     }
-    console.log("Quantidade total de itens em estoque " + count);
+    console.log("Quantidade total de itens em estoque: " + count);
 }
 
 function exercicio2() {
@@ -1124,5 +1124,15 @@ function exercicio2() {
     for (let i = 0; i < listaProdutos.length; i++){
         if (listaProdutos[i].emDestaque === "sim") count++;
     }
-    console.log("Quantidade total de itens em destaque " + count);
+    console.log("Quantidade total de itens em destaque: " + count);
+}
+
+function exercicio3() {
+    // Quantidade total de itens disponíveis (similar ao anterior)
+    let count = 0;
+    for (let i = 0; i < listaProdutos.length; i++){
+        if (listaProdutos[i].disponivel === "sim") count++;
+    }
+    console.log("Quantidade total de itens disponíveis: " + count);
+    
 }
