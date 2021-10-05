@@ -1,6 +1,18 @@
 //Scripts para os exercícios solicitados//
 
-var listaProdutos = [
+
+//Lista de Produtos
+//"codProduto"
+// "descrição - integer"
+// "preço - string"
+// "qtdEstoque - float"
+// "disponível - string"
+// "emDestaque - string"
+// "departamento"
+//     "idDepto - integer"
+//     "nomeDepto - string"
+
+const listaProdutos = [
     {
         "codProduto": 25754,
         "descricao": "ADAPTADOR BLUETOOH USB RECEPTOR DE AUDIO P2",
@@ -1095,3 +1107,22 @@ var listaProdutos = [
     }
 ]
 
+var testArray = [1, 2, 3, 4, 5]
+
+function exercicio1() {
+    // Quantidade total de itens em estoque (somatória das quantidades de todos os produtos)
+    let count = 0;
+    for (let i = 0; i < listaProdutos.length; i++) {
+        count += listaProdutos[i].qtdEstoque;
+    }
+    console.log("Quantidade total de itens em estoque " + count);
+}
+
+function exercicio2() {
+    // Quantidade total de itens em destaque (somatória das quantidades dos itens marcados como "emDestaque : sim")
+    let count = 0;
+    for (let i = 0; i < listaProdutos.length; i++){
+        if (listaProdutos[i].emDestaque === "sim") count++;
+    }
+    console.log("Quantidade total de itens em destaque " + count);
+}
