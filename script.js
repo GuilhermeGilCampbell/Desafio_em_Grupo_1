@@ -1136,3 +1136,12 @@ function exercicio3() {
     console.log("Quantidade total de itens disponíveis: " + count);
     
 }
+
+function exercicio4() {
+    //Quantidade de itens disponíveis e em destaque
+    let count = 0;
+    for (let i = 0; i < listaProdutos.length; i++){
+        if ((listaProdutos[i].disponivel === "sim")&&(listaProdutos[i].emDestaque === "sim")) count++;
+    }
+    console.log("Quantidade de itens disponíveis e em destaque: " + count);
+}
