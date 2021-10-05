@@ -2,15 +2,15 @@
 
 
 //Lista de Produtos
-//"codProduto"
-// "descrição - integer"
-// "preço - string"
-// "qtdEstoque - float"
-// "disponível - string"
-// "emDestaque - string"
+//"codProduto"      -   integer
+// "descrição"      -   string
+// "preço"          -   float
+// "qtdEstoque"     -   integer
+// "disponível"     -   string
+// "emDestaque"     -   string
 // "departamento"
-//     "idDepto - integer"
-//     "nomeDepto - string"
+//     "idDepto"    -   integer
+//     "nomeDepto"  -   string
 
 const listaProdutos = [
     {
@@ -1121,7 +1121,7 @@ function exercicio1() {
 function exercicio2() {
     // Quantidade total de itens em destaque (somatória das quantidades dos itens marcados como "emDestaque : sim")
     let count = 0;
-    for (let i = 0; i < listaProdutos.length; i++){
+    for (let i = 0; i < listaProdutos.length; i++) {
         if (listaProdutos[i].emDestaque === "sim") count++;
     }
     console.log("Quantidade total de itens em destaque: " + count);
@@ -1130,18 +1130,27 @@ function exercicio2() {
 function exercicio3() {
     // Quantidade total de itens disponíveis (similar ao anterior)
     let count = 0;
-    for (let i = 0; i < listaProdutos.length; i++){
+    for (let i = 0; i < listaProdutos.length; i++) {
         if (listaProdutos[i].disponivel === "sim") count++;
     }
     console.log("Quantidade total de itens disponíveis: " + count);
-    
+
 }
 
 function exercicio4() {
     //Quantidade de itens disponíveis e em destaque
     let count = 0;
-    for (let i = 0; i < listaProdutos.length; i++){
-        if ((listaProdutos[i].disponivel === "sim")&&(listaProdutos[i].emDestaque === "sim")) count++;
+    for (let i = 0; i < listaProdutos.length; i++) {
+        if ((listaProdutos[i].disponivel === "sim") && (listaProdutos[i].emDestaque === "sim")) count++;
     }
     console.log("Quantidade de itens disponíveis e em destaque: " + count);
+}
+
+function exercicio5() {
+    // Valor total do inventário da empresa (somatória dos valores individuais multiplicado pela quantidade em estoque - considere apenas os produtos “EM ESTOQUE”)
+    let count = 0;
+    for (let i = 0; i < listaProdutos.length; i++) {
+        count += listaProdutos[i].preco * listaProdutos[i].qtdEstoque;
+    }
+    console.log("Valor total do inventário da empresa: R$ " + count.toFixed(2));
 }
