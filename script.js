@@ -1107,7 +1107,7 @@ const listaProdutos = [
     }
 ]
 
-var testArray = [1, 2, 3, 4, 5]
+//Exercícios 
 
 function exercicio1() {
     // Quantidade total de itens em estoque (somatória das quantidades de todos os produtos)
@@ -1153,4 +1153,15 @@ function exercicio5() {
         count += listaProdutos[i].preco * listaProdutos[i].qtdEstoque;
     }
     console.log("Valor total do inventário da empresa: R$ " + count.toFixed(2));
+}
+
+// Exercícios 6, 7, 8 e 9 podem ser otimizado para situações quando houverem empates
+
+function exercicio6() {
+    // Produto mais caro da loja (bem como seu departamento - considere apenas o preço dele)
+    let j = 0;
+    for (let i = 1; i < listaProdutos.length; i++) {
+        if (listaProdutos[i].preco > listaProdutos[j].preco) {j=i};
+    }
+    console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o mais caro da loja com valor de R$ " + listaProdutos[j].preco.toFixed(2));
 }
