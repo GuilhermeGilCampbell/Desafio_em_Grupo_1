@@ -1118,8 +1118,6 @@ function exercicio1() {
     console.log("Quantidade total de itens em estoque: " + count);
 }
 
-
-//2173
 function exercicio2() {
     // Quantidade total de itens em destaque (somatória das quantidades dos itens marcados como "emDestaque : sim")
     let itensDiferentes = 0;
@@ -1133,7 +1131,6 @@ function exercicio2() {
     console.log(itensDiferentes + " itens diferentes em destaque com um total de " + totalItens + " em estoque");
 }
 
-//2568
 function exercicio3() {
     // Quantidade total de itens disponíveis (similar ao anterior)
     let itensDiferentes = 0;
@@ -1150,11 +1147,16 @@ function exercicio3() {
 
 function exercicio4() {
     //Quantidade de itens disponíveis e em destaque
-    let count = 0;
+    let itensDiferentes = 0;
+    let totalItens = 0;
     for (let i = 0; i < listaProdutos.length; i++) {
-        if ((listaProdutos[i].disponivel === "sim") && (listaProdutos[i].emDestaque === "sim")) count++;
+        if ((listaProdutos[i].disponivel === "sim") && (listaProdutos[i].emDestaque === "sim")) {
+            itensDiferentes++;
+            totalItens += listaProdutos[i].qtdEstoque;
+
+        }
     }
-    console.log("Quantidade de itens disponíveis e em destaque: " + count);
+    console.log("Quantidade de itens disponíveis e em destaque: " + totalItens);
 }
 
 function exercicio5() {
@@ -1187,10 +1189,23 @@ function exercicio7() {
 }
 
 function exercicio8() {
-    // Produto mais barato da loja (bem como seu departamento - considere apenas o preço dele)
+    //Produto de estoque mais valioso (considere o preço multiplicado pela quantidade e também apenas EM ESTOQUE)
     let j = 0;
     for (let i = 1; i < listaProdutos.length; i++) {
         if (listaProdutos[i].preco * listaProdutos[i].qtdEstoque > listaProdutos[j].preco * listaProdutos[j].qtdEstoque) { j = i };
     }
     console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o produto em estoque mais valioso com valor acumulado de R$ " + (listaProdutos[j].preco * listaProdutos[j].qtdEstoque).toFixed(2));
+}
+
+function exercicio9() {
+    //Produto em estoque menos valioso (considere o preço multiplicado pela quantidade e também apenas EM ESTOQUE)
+    //Valor inicial
+    let j = 0;
+    while (listaProdutos[j].qtdEstoque === 0) {j++}
+
+    //Atualização do produto mais barato
+    for (let i = (j+1); i < listaProdutos.length; i++) {
+        if ((listaProdutos[i].qtdEstoque > 0)&&(listaProdutos[i].preco * listaProdutos[i].qtdEstoque < listaProdutos[j].preco * listaProdutos[j].qtdEstoque)) { j = i };
+    }
+    console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o produto em estoque menos valioso com valor acumulado de R$ " + (listaProdutos[j].preco * listaProdutos[j].qtdEstoque).toFixed(2));
 }
