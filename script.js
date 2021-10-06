@@ -1219,3 +1219,28 @@ function exercicio10() {
     }
     console.log("O valor do ticket médio dos produtos da empresa é de R$ " + (somatorioDosPrecos/(listaProdutos.length)).toFixed(2));
 }
+
+// Respostas automaticas
+function respostas(){
+    console.log("Exercicio 1:")
+    exercicio1();
+    console.log("Exercicio 2:")
+    exercicio2();
+    console.log("Exercicio 3:")
+    exercicio3();
+    console.log("Exercicio 4:")
+    exercicio4();
+    console.log("Exercicio 5:")
+    exercicio5();
+    console.log("Exercicio 6:")
+    exercicio6();
+    console.log("Exercicio 7:")
+    exercicio7();
+    console.log("Exercicio 8:")
+    exercicio8();
+    console.log("Exercicio 9:")
+    exercicio9();
+    console.log("Exercicio 10:")
+    exercicio10();
+}
+respostas();
