@@ -1118,22 +1118,33 @@ function exercicio1() {
     console.log("Quantidade total de itens em estoque: " + count);
 }
 
+
+//2173
 function exercicio2() {
     // Quantidade total de itens em destaque (somatória das quantidades dos itens marcados como "emDestaque : sim")
-    let count = 0;
+    let itensDiferentes = 0;
+    let totalItens = 0;
     for (let i = 0; i < listaProdutos.length; i++) {
-        if (listaProdutos[i].emDestaque === "sim") count++;
+        if (listaProdutos[i].emDestaque === "sim") {
+            itensDiferentes++;
+            totalItens += listaProdutos[i].qtdEstoque;
+        }
     }
-    console.log("Quantidade total de itens em destaque: " + count);
+    console.log(itensDiferentes + " itens diferentes em destaque com um total de " + totalItens + " em estoque");
 }
 
+//2568
 function exercicio3() {
     // Quantidade total de itens disponíveis (similar ao anterior)
-    let count = 0;
+    let itensDiferentes = 0;
+    let totalItens = 0;
     for (let i = 0; i < listaProdutos.length; i++) {
-        if (listaProdutos[i].disponivel === "sim") count++;
+        if (listaProdutos[i].disponivel === "sim") {
+            itensDiferentes++;
+            totalItens += listaProdutos[i].qtdEstoque;
+        }
     }
-    console.log("Quantidade total de itens disponíveis: " + count);
+    console.log(itensDiferentes + " itens diferentes disponíveis com um total de " + totalItens + " em estoque");
 
 }
 
@@ -1161,7 +1172,7 @@ function exercicio6() {
     // Produto mais caro da loja (bem como seu departamento - considere apenas o preço dele)
     let j = 0;
     for (let i = 1; i < listaProdutos.length; i++) {
-        if (listaProdutos[i].preco > listaProdutos[j].preco) {j=i};
+        if (listaProdutos[i].preco > listaProdutos[j].preco) { j = i };
     }
     console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o mais caro da loja com valor de R$ " + listaProdutos[j].preco.toFixed(2));
 }
@@ -1170,7 +1181,16 @@ function exercicio7() {
     // Produto mais barato da loja (bem como seu departamento - considere apenas o preço dele)
     let j = 0;
     for (let i = 1; i < listaProdutos.length; i++) {
-        if (listaProdutos[i].preco < listaProdutos[j].preco) {j=i};
+        if (listaProdutos[i].preco < listaProdutos[j].preco) { j = i };
     }
     console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o mais barato da loja com valor de R$ " + listaProdutos[j].preco.toFixed(2));
+}
+
+function exercicio8() {
+    // Produto mais barato da loja (bem como seu departamento - considere apenas o preço dele)
+    let j = 0;
+    for (let i = 1; i < listaProdutos.length; i++) {
+        if (listaProdutos[i].preco * listaProdutos[i].qtdEstoque > listaProdutos[j].preco * listaProdutos[j].qtdEstoque) { j = i };
+    }
+    console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o produto em estoque mais valioso com valor acumulado de R$ " + (listaProdutos[j].preco * listaProdutos[j].qtdEstoque).toFixed(2));
 }
