@@ -1199,6 +1199,7 @@ function exercicio8() {
 
 function exercicio9() {
     //Produto em estoque menos valioso (considere o preço multiplicado pela quantidade e também apenas EM ESTOQUE)
+    
     //Valor inicial
     let j = 0;
     while (listaProdutos[j].qtdEstoque === 0) {j++}
@@ -1208,4 +1209,13 @@ function exercicio9() {
         if ((listaProdutos[i].qtdEstoque > 0)&&(listaProdutos[i].preco * listaProdutos[i].qtdEstoque < listaProdutos[j].preco * listaProdutos[j].qtdEstoque)) { j = i };
     }
     console.log(listaProdutos[j].descricao + " (Departamento de " + listaProdutos[j].departamento.nomeDepto + ") é o produto em estoque menos valioso com valor acumulado de R$ " + (listaProdutos[j].preco * listaProdutos[j].qtdEstoque).toFixed(2));
+}
+
+function exercicio10() {
+    //Valor do ticket médio dos produtos da empresa (basicamente o valor total do inventário dividido pelo número de itens - considere TODOS os produtos, porém considere apenas 1 exemplar por produto)
+    somatorioDosPrecos = 0.00;
+    for (let i = 0; i < listaProdutos.length; i++) {
+        somatorioDosPrecos += listaProdutos[i].preco*listaProdutos[i].qtdEstoque;
+    }
+    console.log("O valor do ticket médio dos produtos da empresa é de R$ " + (somatorioDosPrecos/(listaProdutos.length)).toFixed(2));
 }
