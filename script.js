@@ -1220,6 +1220,191 @@ function exercicio10() {
     console.log("O valor do ticket médio dos produtos da empresa é de R$ " + (somatorioDosPrecos/(listaProdutos.length)).toFixed(2));
 }
 
+function exercicio11() {
+    //"for" responsável por salvar todos os nomes dos departamentos na "arrayDepartamentos";
+    var arrayDepartamentos = [];
+    for (var i = 0; i < listaProdutos.length; i++) {
+      arrayDepartamentos.push(listaProdutos[i].departamento.nomeDepto);
+    }
+  
+    //""...new Set" responsável por filtrar todos os nomes de departamentos repetidos.
+    var departamentos = [...new Set(arrayDepartamentos)],
+      quantidade = 0,
+      resultado = [];
+  
+    //"for" para percorrer cada departamento.
+    for (var i = 0; i < departamentos.length; i++) {
+        //"for" para percorrer todos os produtos com as condicionais exigidas pelo exercício.
+      for (var x = 0; x < listaProdutos.length; x++) {
+        if (listaProdutos[x].disponivel === "sim" && listaProdutos[x].departamento.nomeDepto === departamentos[i]) {
+          quantidade += listaProdutos[x].qtdEstoque;
+        }
+      }
+      //Adicionando resultado de cada departamento na resultado.
+      resultado.push({ Departamento: departamentos[i], Quantidade: quantidade + " itens" });
+      //Zerando a variável para não acrescentar os resultados do departamento atual no próximo.
+      quantidade = 0;
+    }
+  
+    console.log(resultado);
+}
+
+function exercicio12() {
+    //"for" responsável por salvar todos os nomes dos departamentos na "arrayDepartamentos";
+    var arrayDepartamentos = [];
+    for (var i = 0; i < listaProdutos.length; i++) {
+      arrayDepartamentos.push(listaProdutos[i].departamento.nomeDepto);
+    }
+  
+    //""...new Set" responsável por filtrar todos os nomes de departamentos repetidos.
+    var departamentos = [...new Set(arrayDepartamentos)],
+      inventario = 0,
+      resultado = [];
+  
+    //"for" para percorrer cada departamento.
+    for (var i = 0; i < departamentos.length; i++) {
+        //"for" para percorrer todos os produtos com as condicionais exigidas pelo exercício.
+      for (var x = 0; x < listaProdutos.length; x++) {
+        if (listaProdutos[x].departamento.nomeDepto === departamentos[i]) {
+            inventario += listaProdutos[x].preco * listaProdutos[x].qtdEstoque;
+        }
+      }
+      //Adicionando resultado de cada departamento na resultado.
+      resultado.push(
+            { 
+              Departamento: departamentos[i],
+              Inventario: "R$ " + inventario.toFixed(2) 
+            });
+      //Zerando a variável para não acrescentar os resultados do departamento atual no próximo.
+      inventario = 0;
+    }
+  
+    console.log(resultado);
+}
+
+function exercicio13() {
+    //"for" responsável por salvar todos os nomes dos departamentos na "arrayDepartamentos";
+    var arrayDepartamentos = [];
+    for (var i = 0; i < listaProdutos.length; i++) {
+      arrayDepartamentos.push(listaProdutos[i].departamento.nomeDepto);
+    }
+  
+    //""...new Set" responsável por filtrar todos os nomes de departamentos repetidos.
+    var departamentos = [...new Set(arrayDepartamentos)],
+      quantidade = 0,
+      somatoria = 0,
+      resultado = [];
+  
+    //"for" para percorrer cada departamento.
+    for (var i = 0; i < departamentos.length; i++) {
+        //"for" para percorrer todos os produtos com as condicionais exigidas pelo exercício.
+      for (var x = 0; x < listaProdutos.length; x++) {
+        if (departamentos[i] == listaProdutos[x].departamento.nomeDepto) {
+            quantidade += listaProdutos[x].qtdEstoque;
+            somatoria += listaProdutos[x].preco * listaProdutos[x].qtdEstoque;
+        }
+      }
+      //Adicionando resultado de cada departamento na resultado.
+      resultado.push(
+            { 
+              Departamento: departamentos[i], 
+              qtdEstoque: quantidade, 
+              somatoriaTotal: "R$ " + somatoria.toFixed(2), 
+              TicketMedio: "R$ " + (somatoria / quantidade).toFixed(2)
+            });
+      //Zerando as variáveis para não acrescentar os resultados do departamento atual no próximo.
+      somatoria = 0;
+      quantidade = 0;
+    }
+    
+    console.log(resultado);
+}
+
+function exercicio14() {
+    //"for" responsável por salvar todos os nomes dos departamentos na "arrayDepartamentos";
+    var arrayDepartamentos = [];
+    for (var i = 0; i < listaProdutos.length; i++) {
+      arrayDepartamentos.push(listaProdutos[i].departamento.nomeDepto);
+    }
+  
+    //""...new Set" responsável por filtrar todos os nomes de departamentos repetidos.
+    var departamentos = [...new Set(arrayDepartamentos)],
+      preco,
+      departamento,
+      valorAnterior = 0,
+      resultado = [];
+
+    //"for" para percorrer cada departamento.
+    for (var i = 0; i < departamentos.length; i++) {
+
+        preco = 0;
+
+        //"for" para percorrer todos os produtos com as condicionais exigidas pelo exercício.
+        for (var x = 0; x < listaProdutos.length; x++) {
+            if (departamentos[i] == listaProdutos[x].departamento.nomeDepto) {
+                preco += listaProdutos[x].preco;
+            }
+        }
+
+        //condicional que verifica se o preço atual é maior que o valorAnterior, e o adiciona no valorParcial juntamente com o departamento.
+        if (preco > valorAnterior) {
+            valorAnterior = preco;
+            departamento = departamentos[i];
+        }
+    }
+    //Adicionando resultado de cada departamento na resultado.
+    resultado.push(
+        { 
+            Departamento: departamento,
+            Somatorio: "R$ " + valorAnterior.toFixed(2)
+        });
+    console.log(resultado);
+}
+
+function exercicio15() {
+    //"for" responsável por salvar todos os nomes dos departamentos na "arrayDepartamentos";
+    var arrayDepartamentos = [];
+    for (var i = 0; i < listaProdutos.length; i++) {
+      arrayDepartamentos.push(listaProdutos[i].departamento.nomeDepto);
+    }
+  
+    //""...new Set" responsável por filtrar todos os nomes de departamentos repetidos.
+    var departamentos = [...new Set(arrayDepartamentos)],
+      preco,
+      departamento,
+      valorAnterior = 0,
+      resultado = [];
+
+    //"for" para percorrer cada departamento.
+    for (var i = 0; i < departamentos.length; i++) {
+
+        preco = 0;
+
+        //"for" para percorrer todos os produtos com as condicionais exigidas pelo exercício.
+        for (var x = 0; x < listaProdutos.length; x++) {
+            if (departamentos[i] == listaProdutos[x].departamento.nomeDepto) {
+                preco += listaProdutos[x].preco;
+            }
+        }
+
+        //condicional para acrescentar o valor da primeira interação a variável valorAnterior, para que na próxima interação, possa interagir...
+        //com a próxima condição.
+        valorAnterior === 0 ? valorAnterior = preco : "";
+        //condicional que verifica se o preço atual é maior que o valorAnterior, e o adiciona no valorParcial juntamente com o departamento.
+        if (preco < valorAnterior) {
+            valorAnterior = preco;
+            departamento = departamentos[i];
+        }
+    }
+    //Adicionando resultado de cada departamento na resultado.
+    resultado.push(
+        { 
+            Departamento: departamento,
+            Somatorio: "R$ " + valorAnterior.toFixed(2)
+        });
+    console.log(resultado);
+}
+
 // Respostas automaticas
 function respostas(){
     console.log("Exercicio 1:")
@@ -1242,5 +1427,15 @@ function respostas(){
     exercicio9();
     console.log("Exercicio 10:")
     exercicio10();
+    console.log("Exercicio 11:")
+    exercicio11();
+    console.log("Exercicio 12:")
+    exercicio12();
+    console.log("Exercicio 13:")
+    exercicio13();
+    console.log("Exercicio 14:")
+    exercicio14();
+    console.log("Exercicio 15:")
+    exercicio15();
 }
 respostas();
