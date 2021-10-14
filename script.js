@@ -358,7 +358,7 @@ const listaProdutos = [
         "emDestaque": "sim",
         "departamento": {
             "idDepto": 3,
-            "nomeDepto": "Acessorios"
+            "nomeDepto": "Eletronicos"
         }
     },
     {
